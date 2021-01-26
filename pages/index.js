@@ -52,7 +52,7 @@ export default function Home() {
         </Widget>
         <Footer />
       </QuizContainer>
-      <GitHubCorner projectUrl="http://localhost:3000/" />
+      <GitHubCorner projectUrl="https://github.com/admsilva/poderosochefaoquiz" />
     </QuizBackground>
   );
 }
