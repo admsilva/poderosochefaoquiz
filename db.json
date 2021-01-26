@@ -1,0 +1,45 @@
+{
+    "bg": "https://i1.wp.com/movies.mxdwn.com/wp-content/uploads/2014/10/9a887d75fed2ffb7b641dbf85b3bffd9.png",
+    "title": "Quiz Poderoso Chefão",
+    "description": "Teste os seus conhecimentos sobre Poderoso Chefão",
+    "questions": [
+      {
+        "image": "https://media.giphy.com/media/RMGbTGi77Zg980i3ri/giphy.gif",
+        "title": "Inicialmente, Robert De Niro fez testes para o papel?",
+        "description": "Essa é pra aquecer",
+        "answer": 1,
+        "alternatives": [
+          "Tom Hagen",
+          "Sonny",
+          "Fredo",
+          "Michael"
+        ]
+      },
+      {
+        "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
+        "title": "George Lucas participou de quais cenas de O poderoso Chefão?",
+        "description": "George Lucas de Star Wars? haha",
+        "answer": 0,
+        "alternatives": [
+           "Imagens usadas como teasers pelos jornais.",
+           "Morte de Dom Corleone",
+           "Ataque a Michel Corleone",
+           "Morte de Sonny Corleone"
+        ]
+      }
+    ],
+    "external": [
+      ""
+    ],
+    "theme": {
+      "colors": {
+        "primary": "#801313",
+        "secondary": "#212121",
+        "mainBg": "#4d4d4d",
+        "contrastText": "#FFFFFF",
+        "wrong": "#f44336",
+        "success": "#4CAF50"
+      },
+      "borderRadius": "4px"
+    }
+  }
