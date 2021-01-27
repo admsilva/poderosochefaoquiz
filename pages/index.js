@@ -1,15 +1,12 @@
-import styled from 'styled-components'
-import db from '../db.json'
-import Widget from '../src/components/Widget'
-import Footer from '../src/components/Footer'
-import GitHubCorner from '../src/components/GitHubCorner'
-import QuizBackground from '../src/components/QuizBackground'
-import QuizLogo from '../src/components/QuizLogo'
-
-const Title = styled.h1`
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.secondary};
-`
+import React from 'react';
+import styled from 'styled-components';
+import { useRouter } from 'next/router';
+import db from '../db.json';
+import Widget from '../src/components/Widget';
+import Footer from '../src/components/Footer';
+import GitHubCorner from '../src/components/GitHubCorner';
+import QuizBackground from '../src/components/QuizBackground';
+import QuizLogo from '../src/components/QuizLogo';
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -23,30 +20,46 @@ export const QuizContainer = styled.div`
 `;
 
 export default function Home() {
+  const router = useRouter();
+  const [name, setName] = React.useState('');
+
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
+        <QuizLogo />
         <Widget>
           <Widget.Header>
             <h1>The Title One</h1>
           </Widget.Header>
           <Widget.Content>
-            <p>
-              Duis sit ut qui laboris ex dolore. 
-              Sint mollit officia pariatur minim officia reprehenderit. 
-              Occaecat do proident id ut veniam aliqua consectetur nostrud mollit aliquip proident veniam proident.
-            </p>
+            <form onSubmit={(event) => {
+              event.preventDefault();
+              router.push(`/quiz?name=${name}`);
+            }}
+            >
+              <input
+                onChange={(event) => {
+                  setName(event.target.value);
+                }}
+                placeholder="Qual seu nome..."
+                required
+              />
+              <button type="submit" disabled={name.length === 0}>
+                Jogar
+                {name}
+              </button>
+            </form>
           </Widget.Content>
         </Widget>
 
         <Widget>
           <Widget.Content>
             <h2>The Title Second</h2>
-
             <p>
-              Duis sit ut qui laboris ex dolore. 
-              Sint mollit officia pariatur minim officia reprehenderit. 
-              Occaecat do proident id ut veniam aliqua consectetur nostrud mollit aliquip proident veniam proident.
+              Duis sit ut qui laboris ex dolore.
+              Sint mollit officia pariatur minim officia reprehenderit.
+              Occaecat do proident id ut veniam aliqua consectetur nostrud,
+              mollit aliquip proident veniam proident.
             </p>
           </Widget.Content>
         </Widget>
