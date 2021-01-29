@@ -133,7 +133,7 @@ function QuestionWidget({
                   style={{ display: 'none' }}
                   id={alternativeId}
                   name={questionId}
-                  onChange={() => setSelectedAlterantive(alternativeIndex)}
+                  onClick={() => setSelectedAlterantive(alternativeIndex)}
                   type="radio"
                 />
                 {alternative}
