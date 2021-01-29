@@ -16,7 +16,7 @@
         ]
       },
       {
-        "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
+        "image": "https://media.giphy.com/media/l0Iyn2ZHQCM3tSqR2/giphy.gif",
         "title": "George Lucas participou de quais cenas de O poderoso Chefão?",
         "description": "George Lucas de Star Wars? haha",
         "answer": 0,
@@ -33,12 +33,12 @@
     ],
     "theme": {
       "colors": {
-        "primary": "#801313",
-        "secondary": "#212121",
+        "primary": "#590d0d",
+        "secondary": "#801313",
         "mainBg": "#4d4d4d",
         "contrastText": "#FFFFFF",
-        "wrong": "#f44336",
-        "success": "#4CAF50"
+        "wrong": "#ff3d00",
+        "success": "#00e676"
       },
       "borderRadius": "4px"
     }
