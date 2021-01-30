@@ -35,6 +35,15 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>Quiz Poderoso Chefão</title>
+        <meta property="og:locale" content="pt_BR" />
+        <meta property="og:url" content="https://poderosochefaoquiz.admsilva.vercel.app/" />
+        <meta property="og:title" content="Quiz Poderoso Chefão" />
+        <meta property="og:site_name" content="poderosochefaoquiz" />
+        <meta property="og:description" content="Projeto criado durante a Imersão React v2" />
+        <meta property="og:image" content={db.bg} />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="600" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet" />
       </Head>
