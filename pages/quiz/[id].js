@@ -4,9 +4,6 @@ import { ThemeProvider } from 'styled-components';
 import QuizScreen from '../../src/screens/Quiz/index';
 
 export default function QuizDaGaleraPage({ dbExterno, name }) {
-  // const [db, setDb] React.useState({})
-  // React.useEffect(() => {
-  // });
   return (
     <ThemeProvider theme={dbExterno.theme}>
       <QuizScreen
@@ -15,11 +12,6 @@ export default function QuizDaGaleraPage({ dbExterno, name }) {
         name={name}
       />
     </ThemeProvider>
-    /*
-    <pre style={{ color: 'black' }}>
-      {JSON.stringify(dbExterno.questions, null, 4)}
-    </pre>
-    */
   );
 }
 
@@ -37,18 +29,13 @@ export async function getServerSideProps(context) {
       })
       .then((respostaConvertidaEmObjeto) => respostaConvertidaEmObjeto)
       .catch((err) => err);
-
-    // console.log('Banco Externo', dbExterno);
-    // console.log('Infos que o Next da para nós', context.query.id);
-
     return {
       props: {
         dbExterno,
         name,
-      }, // will be passed to the page component as props
+      },
     };
   } catch (err) {
-    // redirect ...
     throw new Error(err);
   }
 }

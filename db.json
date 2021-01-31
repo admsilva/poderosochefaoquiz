@@ -26,6 +26,28 @@
            "Ataque a Michel Corleone",
            "Morte de Sonny Corleone"
         ]
+      },
+      {
+        "image": "https://media.giphy.com/media/MEjGHUMiHlJJS9ilDJ/giphy.gif",
+        "title": "Qual o significado das laranjas em cena no filme?",
+        "description": "Laranjas? Serio isso?",
+        "answer": 3,
+        "alternatives": [
+           "Nada.",
+           "É uma fruta popular da época.",
+           "Os Corleones gostam de laranjas.",
+           "Elas antecipam um assassinato ou um atentado contra algum personagem."
+        ]
+      },
+      {
+        "image": "https://media.giphy.com/media/XjYq1CwVZqYda/giphy.gif",
+        "title": "A cabeça de cavalo colocada na cama do produtor de filmes era verdadeira ou falsa?",
+        "description": "Cabeça de cavalo?",
+        "answer": 3,
+        "alternatives": [
+           "Verdadeira",
+           "Falsa"
+        ]
       }
     ],
     "external": [

@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { motion } from 'framer-motion';
-// import db from '../../../db.json';
 import Widget from '../../components/Widget';
 import QuizLogo from '../../components/QuizLogo';
 import QuizBackground from '../../components/QuizBackground';
@@ -9,6 +8,7 @@ import QuizContainer from '../../components/QuizContainer';
 import AlternativesForm from '../../components/AlternativesForm';
 import Button from '../../components/Button';
 import BackLinkArrow from '../../components/BackLinkArrow';
+import Load from '../../components/Load';
 
 function ResultWidget({ results, name }) {
   return (
@@ -33,13 +33,6 @@ function ResultWidget({ results, name }) {
           {', '}
           você acertou
           {' '}
-          {/* results.reduce((somatoriaAtual, resultAtual) => {
-            const isAcerto = resultAtual === true;
-            if (isAcerto) {
-              return somatoriaAtual + 1;
-            }
-            return somatoriaAtual;
-          }, 0) */}
           {results.filter((x) => x).length}
           {' '}
           perguntas de
@@ -83,7 +76,7 @@ function LoadingWidget() {
       </Widget.Header>
 
       <Widget.Content>
-        [Desafio do Loading]
+        <Load />
       </Widget.Content>
     </Widget>
   );
@@ -165,7 +158,11 @@ function QuestionWidget({
                   style={{ display: 'none' }}
                   id={alternativeId}
                   name={questionId}
-                  onClick={() => setSelectedAlterantive(alternativeIndex)}
+                  onClick={() => {
+                    if (!isQuestionSubmited) {
+                      setSelectedAlterantive(alternativeIndex);
+                    }
+                  }}
                   type="radio"
                 />
                 {alternative}
@@ -173,13 +170,10 @@ function QuestionWidget({
             );
           })}
 
-          {/* <pre>
-            {JSON.stringify(question, null, 4)}
-          </pre> */}
           <Button type="submit" disabled={!hasAlternativeSelected}>
             Confirmar
           </Button>
-          {/* isQuestionSubmited && <p>{`Você selecionou: ${selectedAlterantive}`}</p> */}
+
           {isQuestionSubmited && isCorrect && <p>Você acertou!</p>}
           {isQuestionSubmited && !isCorrect && <p>Você errou!</p>}
         </AlternativesForm>
@@ -208,20 +202,16 @@ export default function QuizPage({ externalQuestions, externalBg, name }) {
       ...results,
       result,
     ]);
-    // results.push(result);
-    // setResults(results);
   }
 
-  // [React chama de: Efeitos || Effects]
-  // React.useEffect
-  // atualizado === willUpdate
-  // morre === willUnmount
   React.useEffect(() => {
-    // fetch() ...
-    setTimeout(() => {
-      setScreenState(screenStates.QUIZ);
-    }, 1 * 1000);
-  // nasce === didMount
+    let mounted = true;
+    if (mounted) {
+      setTimeout(() => {
+        setScreenState(screenStates.QUIZ);
+      }, 1 * 2000);
+    }
+    return () => { mounted = false; };
   }, []);
 
   function handleSubmitQuiz() {
