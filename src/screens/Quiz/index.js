@@ -24,10 +24,6 @@ function ResultWidget({ results, name }) {
     >
       <Widget.Header>
         <BackLinkArrow href="/" />
-        Resultado...
-      </Widget.Header>
-
-      <Widget.Content>
         <p>
           {name}
           {', '}
@@ -40,6 +36,9 @@ function ResultWidget({ results, name }) {
           {results.length}
           !
         </p>
+      </Widget.Header>
+
+      <Widget.Content>
         <ul>
           {results.map((result, index) => (
             <li key={`result__${index + 1}`}>
@@ -54,12 +53,21 @@ function ResultWidget({ results, name }) {
             </li>
           ))}
         </ul>
+        <img
+          alt="Descrição"
+          style={{
+            width: '100%',
+            height: '160px',
+            objectFit: 'cover',
+          }}
+          src="https://media.giphy.com/media/QBRNHGamXCKd94OIs4/giphy.gif"
+        />
       </Widget.Content>
     </Widget>
   );
 }
 
-function LoadingWidget() {
+function LoadingWidget({ name }) {
   return (
     <Widget
       as={motion.section}
@@ -72,7 +80,9 @@ function LoadingWidget() {
       animate="show"
     >
       <Widget.Header>
-        Carregando...
+        {name}
+        {', '}
+        carregando...
       </Widget.Header>
 
       <Widget.Content>
@@ -237,7 +247,7 @@ export default function QuizPage({ externalQuestions, externalBg, name }) {
           />
         )}
 
-        {screenState === screenStates.LOADING && <LoadingWidget />}
+        {screenState === screenStates.LOADING && <LoadingWidget name={name} />}
 
         {screenState === screenStates.RESULT && <ResultWidget name={name} results={results} />}
       </QuizContainer>
