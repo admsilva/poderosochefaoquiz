@@ -2,18 +2,19 @@
 import React from 'react';
 import NextLink from 'next/link';
 
-export default function Link({ children, href, ...props }) {
+export default function Link({
+  children,
+  href,
+  isEnabled,
+  ...props
+}) {
   return (
     <NextLink
-      href={href}
+      href={isEnabled ? href : '#'}
       passHref
     >
-      <a
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        {...props}
-      >
-        {children}
-      </a>
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+      <a {...props} aria-disabled={!isEnabled}>{children}</a>
     </NextLink>
   );
 }

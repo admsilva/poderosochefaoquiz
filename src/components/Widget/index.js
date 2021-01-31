@@ -64,6 +64,14 @@ Widget.Topic = styled.a`
   &:focus {
     opacity: .5;
   }
+  &[aria-disabled="true"] {
+    color: currentColor;
+    pointer-events: none;
+    text-decoration: none;
+  }
+  li > &[aria-disabled="true"] {
+    background-color: #979797;
+  }
 `;
 
 export default Widget;

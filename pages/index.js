@@ -37,7 +37,7 @@ export default function Home() {
           <Widget.Content>
             <form onSubmit={(event) => {
               event.preventDefault();
-              router.push(`/quiz?name=${name}`);
+              router.push(`/quiz/poderosochefaoquiz___admsilva?name=${name}`);
             }}
             >
               <Input
@@ -76,7 +76,8 @@ export default function Home() {
                   <li key={`${projectName}___${gitHubUser}`}>
                     <Widget.Topic
                       as={Link}
-                      href={`/quiz/${projectName}___${gitHubUser}`}
+                      href={`/quiz/${projectName}___${gitHubUser}?name=${name}`}
+                      isEnabled={name !== ''}
                     >
                       {`${projectName}/${gitHubUser}`}
                     </Widget.Topic>
