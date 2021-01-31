@@ -9,6 +9,7 @@ import AlternativesForm from '../../components/AlternativesForm';
 import Button from '../../components/Button';
 import BackLinkArrow from '../../components/BackLinkArrow';
 import Load from '../../components/Load';
+import Footer from '../../components/Footer';
 
 function ResultWidget({ results, name }) {
   return (
@@ -250,6 +251,17 @@ export default function QuizPage({ externalQuestions, externalBg, name }) {
         {screenState === screenStates.LOADING && <LoadingWidget name={name} />}
 
         {screenState === screenStates.RESULT && <ResultWidget name={name} results={results} />}
+
+        <Footer
+          as={motion.footer}
+          transition={{ delay: 1, duration: 0.5 }}
+          variants={{
+            show: { opacity: 1, y: '0' },
+            hidden: { opacity: 0, y: '100%' },
+          }}
+          initial="hidden"
+          animate="show"
+        />
       </QuizContainer>
     </QuizBackground>
   );
